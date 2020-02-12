@@ -2,16 +2,49 @@ package com.ecommerceproject.service.pedidos.model;
 
 import java.util.List;
 
+import javax.annotation.Generated;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 /**
  * Pedido
  */
+@Entity
+@Table(name="pedidos")
 public class Pedido {
     
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Column(name="clientId")
     private String clientId;
+
+    @NotNull
+    @Column(name = "totalItens")
     private int totalItens;
+
+    @NotNull
+    @Column(name = "totalPrecoFrete")
     private Long totalPrecoFrete;
+
+    @NotNull
+    @Column(name = "totalPrecoPedido")
     private Long totaPrecolPedido;
+
+    @NotNull
+    @NotEmpty
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Produto> produtos;
 
     public String getClientId() {
