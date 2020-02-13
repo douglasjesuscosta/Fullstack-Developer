@@ -9,14 +9,16 @@ import javax.validation.Valid;
 
 import com.ecommerceproject.service.pedidos.dto.PedidoDTO;
 import com.ecommerceproject.service.pedidos.dto.ProdutoDTO;
+import com.ecommerceproject.service.pedidos.service.PedidoService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 
 /**
@@ -26,26 +28,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("pedido")
 public class PedidoController {
 
+    @Autowired
+    private PedidoService pedidoService;
+
     @GetMapping
-    public List<ProdutoDTO> getPedidos(@RequestParam String param) {
+    public ResponseEntity<List<ProdutoDTO>> getPedidos() {
         return null;
     }
 
     @GetMapping(path = "/{idPedido}",
                 produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ProdutoDTO getPedido(@PathVariable String idProduto) {
+    public ResponseEntity<ProdutoDTO> getPedido(@PathVariable String idProduto) {
         return null;
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProdutoDTO createPedido(@Valid @RequestBody PedidoDTO pedidoDTO) {
-        
+    public ResponseEntity<ProdutoDTO> createPedido(@Valid @RequestBody PedidoDTO pedidoDTO) {
+        pedidoDTO = pedidoService.createPedido(pedidoDTO);
+
         return null;
     }
 
     @DeleteMapping(path = "/{idPedido}")
-    public void deletePedido() {
-
+    public ResponseEntity<Integer> deletePedido() {
+        return null;
     }
     
 }

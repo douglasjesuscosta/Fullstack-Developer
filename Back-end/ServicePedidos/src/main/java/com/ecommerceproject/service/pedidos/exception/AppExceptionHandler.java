@@ -5,12 +5,12 @@ import java.util.Date;
 import com.ecommerceproject.service.pedidos.constants.MessagesPortuguese;
 import com.ecommerceproject.service.pedidos.response.ErrorMessage;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 /**
@@ -29,7 +29,7 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
         errorMessage.setTimeStamp(new Date());
         errorMessage.setExceptionType(ex.getClass().getName());
 
-        return new ResponseEntity<>(ex, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     } 
     
     @ExceptionHandler(value = {NullPointerException.class})
@@ -41,7 +41,7 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
         errorMessage.setTimeStamp(new Date());
         errorMessage.setExceptionType(ex.getClass().getName());
 
-        return new ResponseEntity<>(ex, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }  
+        return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+    } 
     
 }

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: EuclidCircularB-Regular;
+    src: url("/assets/fontes/EuclidCircularB-Regular.otf") format("truetype");
+}
+
+* {
+    font-family: EuclidCircularB-Regular;
+}
+
+.pageContainer {
+    background-color: #E5E5E5;
+}

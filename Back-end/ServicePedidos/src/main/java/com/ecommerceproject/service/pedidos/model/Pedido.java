@@ -2,17 +2,16 @@ package com.ecommerceproject.service.pedidos.model;
 
 import java.util.List;
 
-import javax.annotation.Generated;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * Pedido

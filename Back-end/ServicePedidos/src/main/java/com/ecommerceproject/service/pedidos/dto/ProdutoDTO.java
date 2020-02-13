@@ -5,10 +5,20 @@ package com.ecommerceproject.service.pedidos.dto;
  */
 public class ProdutoDTO {
 
+    private Long id;
     private String codigo;
     private String nome;
     private Long precoUnitario;
     private int quantidade;
+
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getCodigo() {
         return codigo;
