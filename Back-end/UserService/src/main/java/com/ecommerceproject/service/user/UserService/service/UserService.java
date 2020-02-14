@@ -26,7 +26,23 @@ public class UserService {
         return null;
     }
 
+    /***
+     * Método que orquestra o fluxo de atualização
+     * de usuário
+     * 
+     * @param userDTO
+     * @return
+     */
     public UserDTO updateUser(UserDTO userDTO){
         return null;
+    }
+
+    /**
+     * Mét
+     * 
+     * @param idUser
+     */
+    public void deleteUser(Long idUser) {
+
     }
 }
