@@ -31,6 +31,11 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
+    @GetMapping("/healthcheck")
+    public String healthCheck() {
+        return "Working";
+    }
+
     @GetMapping
     public ResponseEntity<List<ProdutoDTO>> getPedidos() {
         return null;

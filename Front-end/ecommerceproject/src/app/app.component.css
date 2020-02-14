@@ -7,6 +7,21 @@
     font-family: EuclidCircularB-Regular;
 }
 
+/**
+    Classes de estílo
+/\**/
+
+.box {
+    display: flex;
+    flex-flow: column;  
+}
+
+.boxContent {
+    height: 100%;
+    padding: 2em 1em 1em 2em;
+}
+
 .pageContainer {
-    background-color: #E5E5E5;
+    /*background-color: #E5E5E5;*/
+    background-color: red;
 }

@@ -6,12 +6,76 @@
     bottom: 0%;
     background: #FFFFFF;
     border-radius: 4px;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.logo {
+    position: absolute;
+    left: 4.17%;
+    right: 86.46%;
+    top: 14.81%;
+    bottom: 14.81%;
+}
+
+.listNavbar {
+    list-style-type: none;
+}
+
+ul {
+    margin: 0;
+    padding-left: 0;
 }
 
 li {
+    display: flex;
     float: left;
+    padding: 1rem;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+li:focus-within a {
+    outline: none;
 }
 
 li a {
+    text-decoration: none;
     display: block;
+    width: 6rem;
+    color: black;
+    font-size: 16px;
+}
+
+ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    position: absolute;
+    margin-top: 1rem;
+    left: 0;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 4px;
+    left: 0;
+    flex-wrap: wrap;
+    min-width: 7rem;
+}
+
+ul li:hover>ul, ul li:focus-within>ul, ul li ul:hover, ul li ul:focus {
+    visibility: visible;
+    opacity: 1;
+    display: block
+}
+
+ul li ul li {
+    clear: both;
+    width: 100%;
 }
