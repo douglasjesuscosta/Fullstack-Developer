@@ -21,6 +21,14 @@ Deverão ser seguidos os passos para instalação e execução do sistema:
    que fará o registro dos outros serviços. O serviço tem como porta padrão a porta 8010. Caso a porta esteja em uso, pode ser              configurada uma nova porta no arquivo "application.properties", porém, com a mudança na porta, deve ser também modificados todos os a
    arquivos "application.properties" presentes nos outros serviços, que necessitam da porta desse serviço para efetuar o registro ou        consumir suas informações como no caso do serviço ApiGateway.
 6. Feita a execução do DiscoveryService, o próximo serviço a ser inicializado é o "ApiGateway". Assim como o DiscoveryService esse          serviço tem sua porta fixa, sendo essa a porta 8011. Caso seja necessário a mudança da porta, deverá ser modificado também, no          projeto do front, o arquivo enviroments.ts na pasta enviroments, que contém o link para esse serviço com essa porta.  
+7. Após a execução do DiscoveryService, deve ser feita a execução do ServicePedido e FreteService respectivamente.
+
+## Execução do projeto Front-end
+   
+   Após a execução dos serviços, deve-se executar o proejeto do Front-end a partir dos seguintes passos:
+
+1. Na parta 'ecommerceproject' executar o comando "npm install" para o download e instalação das dependências
+2. Após o término da execução do comando anterior, executar o comando "ng serve" para execução do projeto.
 
 
 
