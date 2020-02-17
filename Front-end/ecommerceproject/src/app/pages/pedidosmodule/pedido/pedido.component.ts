@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms'
 
@@ -37,7 +37,8 @@ export class PedidoComponent implements OnInit {
     private pedidoClientService: PedidoClientService,
     private clientFrete: ClientFreteService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     const produtosClientes = route.snapshot.data["pedidosClientens"];
 
@@ -148,10 +149,11 @@ export class PedidoComponent implements OnInit {
    * atualizando também os valores.
    */
   public onClickLimparCarrinho = () => {
-    this.pedidoForm.get('produtos').reset();
+    this.produtosSelecionados.clear();
     this.pedidoForm.get('frete').setValue(0);
     this.pedidoForm.get('totalItens').setValue(0);
     this.pedidoForm.get('totalPedido').setValue(0);
+    this.pedidoForm.get('totalPrecoSemFrete').setValue(0);
   }
 
   /**
@@ -171,7 +173,7 @@ export class PedidoComponent implements OnInit {
     const pedido: Pedido = this.getPedidoToInsert();
 
     this.pedidoClientService.salvar(pedido).subscribe(() => {
-      console.log("SUCESSO");
+      this.router.navigate(['./pedidos']);
     }, error => {
 
     });
@@ -225,6 +227,7 @@ export class PedidoComponent implements OnInit {
    * de produtos do carrinho.
    */
   onRemoveItem = (index) => {
-
+    this.produtosSelecionados.removeAt(index);
+    this.recalcularValoresPedido()
   }
 }

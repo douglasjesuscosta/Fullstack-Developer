@@ -1,5 +1,8 @@
 <div class="row">
     <div class="col-lg-12">
+        <div>
+            <span class="titleSection">Novo pedido</span>
+        </div>
         <form [formGroup]="pedidoForm" (ngSubmit)="salvar()">
 
             <!-- CARD SELECAO DE CLIENTE -->
@@ -73,6 +76,10 @@
                             <span class="totalPrecoItem">{{ produto.value.total | currency:'BRL':true }}</span>
                         </div>
 
+                        <div class="buttonRemoveContainer">
+                            <button type="button" class="removeButton"  (click)="onRemoveItem(i)">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

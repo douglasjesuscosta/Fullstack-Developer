@@ -169,3 +169,19 @@
     border: 1px solid #CCCCCC;
     box-sizing: border-box;
 }
+
+.buttonRemoveContainer {
+    display: flex;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+.removeButton {
+    width: 37px;
+    height: 40px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 0px;
+    background: url(../../../../assets/icones/icone-apagar.png);
+}
