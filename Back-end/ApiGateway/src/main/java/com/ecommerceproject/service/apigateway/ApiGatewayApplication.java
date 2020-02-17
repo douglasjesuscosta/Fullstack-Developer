@@ -5,6 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
+/**
+ * ApiGatewayApplication
+ * 
+ * Serviço referente ao redirecionamento de serviços
+ * e balanço de carga entre as diferentes entidades
+ * de serviços disponíveis.
+ */
 @SpringBootApplication
 @EnableZuulProxy
 @EnableEurekaClient
