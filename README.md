@@ -15,7 +15,12 @@ Deverão ser seguidos os passos para instalação e execução do sistema:
 3. O usuário e senha configurados para o banco deverão ser "postgres" e "postgres" respectivamente (usuário e senha padrão)
    Caso o usuário e senha configurados sejam diferentes, também pode ser feita a mudança dos mesmo no arquivo "application.properties"
    do serviço de pedidos.
-4. Após efetuar a configuração do banco, os serviços deverão ser executados. O primeir
+4. Os serviços podem ser executados através do comando "mvn spring-boot:run" ou em uma IDE como Eclipse, IntelliJIdea, entre outras.
+   Para execução via comando, torna-se necessário configurar a variável de ambiente no sistema refetente ao Maven.
+5. Após efetuar a configuração do banco, os serviços deverão ser executados. O primeiro serviço a ser executado é o "DiscoveryService"
+   que fará o registro dos outros serviços. O serviço tem como porta padrão a porta 8010. Caso a porta esteja em uso, pode ser              configurada uma nova porta no arquivo "application.properties", porém, com a mudança na porta, deve ser também modificados todos os a
+   arquivos "application.properties" presentes nos outros serviços, que necessitam da porta desse serviço para efetuar o registro ou        consumir suas informações como no caso do serviço ApiGateway.
+6. Feita a execução do DiscoveryService, o próximo serviço a ser inicializado é o "ApiGateway". Assim como o DiscoveryService esse          serviço tem sua porta fixa, sendo essa a porta 8011. Caso seja necessário a mudança da porta, deverá ser modificado também, no          projeto do front, o arquivo enviroments.ts na pasta enviroments, que contém o link para esse serviço com essa porta.  
 
 
 
