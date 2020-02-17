@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { NavbarComponent } from './navbar/navbar.component';
-import { MessageComponent } from './message/message.component';
 
 /**
  * Módulo que agrupa os componentes referentes a layout como
@@ -14,7 +13,7 @@ import { MessageComponent } from './message/message.component';
  * 
  */
 @NgModule({
-  declarations: [NavbarComponent, MessageComponent],
+  declarations: [NavbarComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
