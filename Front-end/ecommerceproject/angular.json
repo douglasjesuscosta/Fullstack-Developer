@@ -89,6 +89,7 @@
               "src/assets"
             ],
             "styles": [
+              "styles/bootstrap-4.4.1-dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -118,8 +119,9 @@
               "devServerTarget": "ecommerceproject:serve:production"
             }
           }
-        }
+        },
       }
-    }},
+    }
+  },
   "defaultProject": "ecommerceproject"
 }

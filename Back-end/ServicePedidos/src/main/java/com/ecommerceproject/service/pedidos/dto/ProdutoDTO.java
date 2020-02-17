@@ -1,24 +1,21 @@
 package com.ecommerceproject.service.pedidos.dto;
 
+import java.io.Serializable;
+
 /**
  * ProdutoDTO
  */
-public class ProdutoDTO {
+public class ProdutoDTO implements Serializable {
 
-    private Long id;
+
+    private static final long serialVersionUID = -4265598421601584441L;
+    
+    private Integer id;
     private String codigo;
     private String nome;
-    private Long precoUnitario;
+    private Double precoUnitario;
     private int quantidade;
 
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCodigo() {
         return codigo;
@@ -36,11 +33,11 @@ public class ProdutoDTO {
         this.nome = nome;
     }
 
-    public Long getPrecoUnitario() {
+    public Double getPrecoUnitario() {
         return precoUnitario;
     }
 
-    public void setPrecoUnitario(Long precoUnitario) {
+    public void setPrecoUnitario(Double precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
 
@@ -50,5 +47,13 @@ public class ProdutoDTO {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

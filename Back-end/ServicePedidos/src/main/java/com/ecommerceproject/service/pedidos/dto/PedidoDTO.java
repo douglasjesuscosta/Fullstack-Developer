@@ -1,5 +1,6 @@
 package com.ecommerceproject.service.pedidos.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
@@ -10,9 +11,11 @@ import com.ecommerceproject.service.pedidos.constants.MessagesPortuguese;
 /**
  * PedidoDTO
  */
-public class PedidoDTO {
+public class PedidoDTO implements Serializable {
 
-    private Long idPedido;
+	private static final long serialVersionUID = 935893008236006008L;
+
+	private Integer idPedido;
 
     @NotNull(message = MessagesPortuguese.MESSAGE_CLIENTE_REQUIRED)
     private String clientId;
@@ -21,22 +24,18 @@ public class PedidoDTO {
     private int totalItens;
     
     @NotNull(message = MessagesPortuguese.TOTAL_PRECO_FRETE_REQUIRED)
-    private Long totalPrecoFrete;
+    private Double totalPrecoFrete;
     
     @NotNull(message = MessagesPortuguese.TOTAL_PRECO_REQUIRED)
-    private Long totaPrecoPedido;
+    private Double totaPrecoPedido;
+
+    @NotNull
+    private Double totalPrecoSemFrete;
     
     @NotNull(message = MessagesPortuguese.PRODUTOS_REQUIRED)
     @NotEmpty(message = MessagesPortuguese.PRODUTOS_REQUIRED)
     private List<ProdutoDTO> produtos;
 
-    public Long getIdPedido() {
-        return idPedido;
-    }
-
-    public void setIdPedido(Long idPedido) {
-        this.idPedido = idPedido;
-    }
 
     public String getClientId() {
         return clientId;
@@ -54,20 +53,28 @@ public class PedidoDTO {
         this.totalItens = totalItens;
     }
 
-    public Long getTotalPrecoFrete() {
+    public Double getTotalPrecoFrete() {
         return totalPrecoFrete;
     }
 
-    public void setTotalPrecoFrete(Long totalPrecoFrete) {
+    public void setTotalPrecoFrete(Double totalPrecoFrete) {
         this.totalPrecoFrete = totalPrecoFrete;
     }
 
-    public Long getTotaPrecoPedido() {
+    public Double getTotaPrecoPedido() {
         return totaPrecoPedido;
     }
 
-    public void setTotaPrecoPedido(Long totaPrecoPedido) {
+    public void setTotaPrecoPedido(Double totaPrecoPedido) {
         this.totaPrecoPedido = totaPrecoPedido;
+    }
+
+    public Double getTotalPrecoSemFrete() {
+        return totalPrecoSemFrete;
+    }
+
+    public void setTotalPrecoSemFrete(Double totalPrecoSemFrete) {
+        this.totalPrecoSemFrete = totalPrecoSemFrete;
     }
 
     public List<ProdutoDTO> getProdutos() {
@@ -76,5 +83,13 @@ public class PedidoDTO {
 
     public void setProdutos(List<ProdutoDTO> produtos) {
         this.produtos = produtos;
+    }
+
+    public Integer getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(Integer idPedido) {
+        this.idPedido = idPedido;
     }
 }

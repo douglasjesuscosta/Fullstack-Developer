@@ -1,9 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -12,9 +13,17 @@ import { LayoutModule } from './layout/layout.module';
   imports: [
     LayoutModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+   /* {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AppInterceptor,
+    multi: true
+  }*/
+],
+  bootstrap: [AppComponent],
+  exports: [HttpClientModule]
 })
 export class AppModule { }

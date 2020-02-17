@@ -1,18 +1,33 @@
-<nav class="navbar">
+<!-- Componente de Navbar -->
+<nav class="customNavbar">
+    <a href="/pedidos" class="logo">
+        <img src="../../../assets/icones/logotipo-maximatech.png" width="100" height="30">
+    </a>
+
     <ul class="listNavbar">
-        <li>
-            <a href="#">Cadastro</a>
-            <ul class="listNavbar dropdown">
-                <li>Cliente</li>
-                <li>Produto</li>
-            </ul>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle"
+                role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Cadastro</a>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item">Cliente </a>
+                <a class="dropdown-item">Produto</a>
+            </div>
         </li>
-        <li>
-            <a href="#">Pedido</a>
-            <ul class="listNavbar">
-                <li>Novo pedido</li>
-                <li>Consulta pedido</li>
-            </ul>
+        <li class="dropdown">
+            <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Pedido</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="pedidos/novo">
+                    Novo pedido
+                </a>
+
+                <a class="dropdown-item" href="/pedidos">
+                    Consulta pedido
+                </a>
+
+            </div>
         </li>
     </ul>
 </nav>

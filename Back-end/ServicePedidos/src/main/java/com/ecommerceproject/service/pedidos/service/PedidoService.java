@@ -1,5 +1,6 @@
 package com.ecommerceproject.service.pedidos.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ecommerceproject.service.pedidos.dto.PedidoDTO;
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Service;
 
 /**
  * PedidoService
+ * 
+ * Service que concentra as regras de negócio referente
+ * aos fluxos relacionados a {@link Pedido}.
  */
 @Service
 public class PedidoService {
@@ -23,6 +27,12 @@ public class PedidoService {
     @Autowired
     private ProdutoService produtoService;
 
+    /**
+     * Método que orquestra o fluxo de persistência de 
+     * {@link Pedido} 
+     * 
+     * @param pedidoDTO
+     */
     public PedidoDTO createPedido(PedidoDTO pedidoDTO) {
 
         Pedido pedido = PedidoMapper.toPedido(pedidoDTO);
@@ -34,17 +44,46 @@ public class PedidoService {
         return PedidoMapper.toPedidoDTO(pedido);
     }
 
+    /**
+     * Método que orquestra o fluxo de obtenção de 
+     * todos os pedidos persistidos.
+     * 
+     * @return pedidosDTO
+     */
     public List<PedidoDTO> getPedidos() {
-        return null;
+
+        Iterable<Pedido> pedidosIterable = pedidoRepository.findAll();
+        ArrayList<Pedido> pedidosList = new ArrayList<Pedido>();
+        pedidosIterable.forEach(pedidosList::add);
+
+        List<PedidoDTO> pedidosDTO = new ArrayList<PedidoDTO>();
+
+        pedidosList.stream().forEach(pedido -> {
+            PedidoDTO pedidoDTO = PedidoMapper.toPedidoDTO(pedido);
+            pedidosDTO.add(pedidoDTO);
+        });
+
+        return pedidosDTO;
+
     }
 
+    /**
+     * Método que orquestra o fluxo de exclusão de {@link Pedido}
+     * a partir de seu Id.
+     * 
+     * @param idPedido
+     */
     public void deletePedido(Long idPedido) {
         
     }
 
+    /**
+     * Método que orquestra o fluxo de atualização de {@link Pedido}
+     * 
+     * @param idPedido
+     * @return
+     */
     public PedidoDTO updatePedido(Long idPedido) {
         return null;
     }
-
-
 }

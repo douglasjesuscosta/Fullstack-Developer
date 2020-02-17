@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { HomepageComponent } from './homepage/homepage.component';
 
+
+/**
+ * Rotas referentes aos componentes de páginas.
+ */
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./homepagemodule/homepage.module').then(module => module.HomepageModule)
+    path: '', component: HomepageComponent
+  },
+  {
+    path: 'pedidos',
+    loadChildren: () => import('./pedidosmodule/pedidos.module').then(module => module.PedidosModule)
   },
 ];
 

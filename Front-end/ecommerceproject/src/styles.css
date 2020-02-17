@@ -1,9 +1,41 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
 /* You can add global styles to this file, and also import other style files */
-html,
-body {
+
+html, body {
     height: 100%;
     width: 100%;
     margin: 0;
     background-color: #E5E5E5;
 }
 
+.titleSection {
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 30px;
+    /* identical to box height, or 115% */
+    color: #373A3C;
+}
+
+.rowItens {
+    margin-bottom: 2rem;
+}
+
+.titleCard {
+    flex-direction: row;
+    font-size: 22.75px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.titleIcon {
+    display: inline-block;
+    width: 17.46px;
+    height: 20.53px;
+    margin-right: 10px;
+}

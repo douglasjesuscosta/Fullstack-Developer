@@ -23,7 +23,7 @@ public class Pedido {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotNull
     @Column(name="clientId")
@@ -35,16 +35,24 @@ public class Pedido {
 
     @NotNull
     @Column(name = "totalPrecoFrete")
-    private Long totalPrecoFrete;
+    private Double totalPrecoFrete;
 
     @NotNull
     @Column(name = "totalPrecoPedido")
-    private Long totaPrecolPedido;
+    private Double totaPrecolPedido;
 
     @NotNull
     @NotEmpty
     @OneToMany(fetch = FetchType.LAZY)
     private List<Produto> produtos;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getClientId() {
         return clientId;
@@ -62,19 +70,19 @@ public class Pedido {
         this.totalItens = totalItens;
     }
 
-    public Long getTotalPrecoFrete() {
+    public Double getTotalPrecoFrete() {
         return totalPrecoFrete;
     }
 
-    public void setTotalPrecoFrete(Long totalPrecoFrete) {
+    public void setTotalPrecoFrete(Double totalPrecoFrete) {
         this.totalPrecoFrete = totalPrecoFrete;
     }
 
-    public Long getTotaPrecolPedido() {
+    public Double getTotaPrecolPedido() {
         return totaPrecolPedido;
     }
 
-    public void setTotaPrecolPedido(Long totaPrecolPedido) {
+    public void setTotaPrecolPedido(Double totaPrecolPedido) {
         this.totaPrecolPedido = totaPrecolPedido;
     }
 

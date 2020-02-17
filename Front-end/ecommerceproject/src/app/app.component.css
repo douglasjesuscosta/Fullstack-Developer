@@ -13,15 +13,10 @@
 
 .box {
     display: flex;
-    flex-flow: column;  
+    flex-flow: column;
 }
 
 .boxContent {
     height: 100%;
-    padding: 2em 1em 1em 2em;
-}
-
-.pageContainer {
-    /*background-color: #E5E5E5;*/
-    background-color: red;
+    padding: 1em 4em 1em 4em;
 }

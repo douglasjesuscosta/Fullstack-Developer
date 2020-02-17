@@ -15,7 +15,7 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotNull
     @Column(name = "codigoProduto")
@@ -31,13 +31,13 @@ public class Produto {
 
     @NotNull
     @Column(name = "valorUnitario")
-    private Long valorUnitario;
+    private Double valorUnitario;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -65,11 +65,11 @@ public class Produto {
         this.quantidadeComprada = quantidadeComprada;
     }
 
-    public Long getValorUnitario() {
+    public Double getValorUnitario() {
         return valorUnitario;
     }
 
-    public void setValorUnitario(Long valorUnitario) {
+    public void setValorUnitario(Double valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 }

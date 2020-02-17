@@ -1,0 +1,8 @@
+.cardForm {
+    background: #FFFFFF;
+    /* Drop Shadow */
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 2rem 3rem;
+}
+

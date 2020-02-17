@@ -9,9 +9,18 @@ import com.ecommerceproject.service.pedidos.model.Produto;
 
 /**
  * PedidoMapper
+ * 
+ * Classe referente a conversão da entidade {@link Pedido}
+ * para {@link PedidoDTO} 
  */
 public class PedidoMapper {
 
+    /**
+     * Converte {@link PedidoDTO} para {@link Pedido}
+     * 
+     * @param pedidoDTO
+     * @return pedido
+     */
     public static Pedido toPedido(final PedidoDTO pedidoDTO) {
 
         final Pedido pedido = new Pedido();
@@ -30,10 +39,17 @@ public class PedidoMapper {
         return pedido;
     }
 
+    /**
+     * Converte {@link Pedido} para {@link PedidoDTO}
+     * 
+     * @param pedido
+     * @return pedidoDTO
+     */
     public static PedidoDTO toPedidoDTO(final Pedido pedido) {
 
         final PedidoDTO pedidoDTO = new PedidoDTO();
 
+        pedidoDTO.setIdPedido(pedido.getId());
         pedidoDTO.setClientId(pedido.getClientId());
         pedidoDTO.setTotalItens(pedido.getTotalItens());
         pedidoDTO.setTotalPrecoFrete(pedido.getTotalPrecoFrete());

@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlGatewayService: 'http://localhost:8011',
+
+  /* Serviços */
+  freteService: 'frete-ws',
+  pedidoService: 'pedido-ws'
+
 };
 
 /*

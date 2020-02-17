@@ -1,1 +1,131 @@
-<p>pedido works!</p>
+<div class="row">
+    <div class="col-lg-12">
+        <form [formGroup]="pedidoForm" (ngSubmit)="salvar()">
+
+            <!-- CARD SELECAO DE CLIENTE -->
+            <div class="col-12 cardForm">
+                <div class="row rowItens">
+                    <div class="titleCard">
+                        <img class="titleIcon" src="./../../../../assets/icones/icone-cliente.png" />
+                        <span>Cliente</span>
+                    </div>
+                </div>
+                <div class="row rowItens">
+                    <div class="col-6">
+                        <ng-select [searchable]="true" placeholder="Informe um cliente" formControlName="clientId">
+                            <ng-option class="custom" *ngFor="let cliente of clientes" [value]="cliente.codigo">
+                                {{ cliente.nome }}
+                            </ng-option>
+                        </ng-select>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CARD ADICAO PRODUTOS -->
+            <div class="card cardForm">
+                <div class="row rowItens">
+                    <div class="titleCard">
+                        <img class="titleIcon" src="./../../../../assets/icones/icone-carrinho.png" />
+                        <span>Carrinho</span>
+                    </div>
+                </div>
+                <div class="row rowItens">
+                    <div class="col-6">
+                        <ng-select [searchable]="true" formControlName="produtoSelector" placeholder="Nome do produto">
+                            <ng-option *ngFor="let produto of produtos" [value]="produto">
+                                {{ produto.nome }}
+                            </ng-option>
+                        </ng-select>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="isProdutosSelecionadosEmpty()">
+                    <div class="col-12 emptyCartTitle">
+                        <img class="imageEmptyCart" src="../../../../assets/icones/imagem-carrinho-empty-state.png" />
+                        <span class="emptyCartTitle grayColor">
+                            Carrinho vazio
+                        </span>
+                        <span class="empyCartSubtitle grayColor">
+                            Nenhum produto foi inserido
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row" formArrayName="produtos">
+                    <div class="col-12 itemAdded divider"
+                        *ngFor="let produto of produtosSelecionados.controls; let i=index" [formGroupName]="i">
+
+                        <div class="detalhePedidoContainer">
+                            <img class="rounded-circle imageProduct" [src]="produto.value.imageProduct" />
+                        </div>
+                        <div class="productNameCodigoContainer">
+                            <span class="productCode">{{produto.value.codigo}}</span>
+                            <span class="productName">{{produto.value.nome}}</span>
+                        </div>
+                        <div class="detalhePrecoContainer">
+
+                            <input class="productInput itemAdd" formControlName="quantidade" type="number"
+                                (blur)="recalcularValoresPedido()" min="1" />
+                            <span>
+                                x {{produto.value.precoUnitario | currency:'BRL':true }}
+                            </span>
+                            <span class="totalPrecoItem">{{ produto.value.total | currency:'BRL':true }}</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD TOTAL PEDIDO-->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card cardForm">
+                        <div class="row rowItens">
+                            <div class="titleCard">
+                                <img class="titleIcon" src="./../../../../assets/icones/icone-total.png" />
+                                <span>Total</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="divider">
+                                        <div class="rowTotals">
+                                            <span class="grayColor">Itens</span>
+                                            <span
+                                                class="allignSpanRight">{{pedidoForm.get('totalPrecoSemFrete').value | currency:'BRL':true  }}</span>
+                                        </div>
+
+                                        <div class="rowTotals">
+                                            <span class="grayColor">Frete</span>
+                                            <span
+                                                class="allignSpanRight">{{pedidoForm.get('frete').value | currency:'BRL':true  }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="rowTotals">
+                                        <span class="grayColor">Total</span>
+                                        <span
+                                            class="allignSpanRight">{{pedidoForm.get('totalPedido').value | currency:'BRL':true  }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 ">
+                                    <div class="buttonContainer">
+                                        <button class="buttom buttomSubmit" type="submit">
+                                            Finalizar pedido
+                                        </button>
+                                    </div>
+                                    <div class="buttonContainer">
+                                        <button type="button" class="buttom normalButtom" (click)="onClickLimparCarrinho()">
+                                            Limpar carrinho
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
