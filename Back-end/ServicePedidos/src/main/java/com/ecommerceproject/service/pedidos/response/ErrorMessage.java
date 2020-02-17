@@ -4,6 +4,11 @@ import java.util.Date;
 
 /**
  * ErrorMessage
+ * 
+ * Classe que tem como concepção representar um retorno
+ * mediante a um erro no sistema, trazendo uma mensagem
+ * amigável ao usuário, horário, exceção entre outras
+ * informações.
  */
 public class ErrorMessage {
 

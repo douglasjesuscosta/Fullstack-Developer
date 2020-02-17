@@ -15,10 +15,20 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 /**
  * AppExceptionHandler
+ * 
+ * Classe para controle centralizado das exceções do sistema.
  */
 @ControllerAdvice
 public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 
+    /**
+     * Método para tratar exceções de modo geral.
+     * Retorna uma mensagem de caráter mais genérico.
+     * 
+     * @param ex
+     * @param request
+     * @return
+     */
     @ExceptionHandler(value = {Exception.class})
     public ResponseEntity<Object> handleAnyException(Exception ex, WebRequest request) {
 
@@ -32,6 +42,13 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     } 
     
+    /**
+     * Método para tratamento de exceções de tipo NullPointerException.
+     * 
+     * @param ex
+     * @param request
+     * @return
+     */
     @ExceptionHandler(value = {NullPointerException.class})
     public ResponseEntity<Object> handleNullPointerException(NullPointerException ex, WebRequest request) {
 

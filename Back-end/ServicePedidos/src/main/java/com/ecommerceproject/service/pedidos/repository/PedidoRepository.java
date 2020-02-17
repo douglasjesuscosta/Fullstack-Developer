@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 /**
  * PedidoRespository
+ * 
+ * Repository referente a entidade {@link Pedido}
  */
 @Repository
 public interface PedidoRepository extends CrudRepository<Pedido, Long>{
